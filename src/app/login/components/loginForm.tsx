@@ -13,7 +13,7 @@ import { useLogin } from '@/hooks/useLogin';
 import Image from 'next/image';
 
 export function LoginForm() {
-  const { form } = useLogin();
+  const { form, handleSingIn } = useLogin();
 
   return (
     <div className="h-screen flex justify-center items-center">
@@ -22,7 +22,7 @@ export function LoginForm() {
           <Image src="/logo.png" alt="Logo fashionberteli" width={220} height={220} />
         </div>
         <Form {...form}>
-          <form className="flex flex-col gap-4" onSubmit={form.handleSubmit((a) => console.log(a))}>
+          <form className="flex flex-col gap-4" onSubmit={handleSingIn}>
             <FormField
               control={form.control}
               name="username"

@@ -1,3 +1,4 @@
+import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
         {children}
+        <Toaster />
       </body>
     </html>
   );
