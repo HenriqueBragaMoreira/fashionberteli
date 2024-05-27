@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useLogin } from '@/hooks/useLogin';
+import Image from 'next/image';
 
 export function LoginForm() {
   const { form } = useLogin();
@@ -17,6 +18,9 @@ export function LoginForm() {
   return (
     <div className="h-screen flex justify-center items-center">
       <div className="bg-white rounded-2xl px-10 py-5 w-[490px]">
+        <div className="flex justify-center items-center pt-4 pb-5">
+          <Image src="/logo.png" alt="Logo fashionberteli" width={220} height={220} />
+        </div>
         <Form {...form}>
           <form className="flex flex-col gap-4" onSubmit={form.handleSubmit((a) => console.log(a))}>
             <FormField
