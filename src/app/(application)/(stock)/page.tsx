@@ -1,5 +1,5 @@
-import { Sidebar } from '@/components/sidebar';
 import { Metadata } from 'next';
+import { Toolbar } from './components/toolbar';
 
 export const metadata: Metadata = {
   title: 'Estoque'
@@ -7,9 +7,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex">
-      <Sidebar />
-      <h1>Hello World!</h1>
+    <div className="flex-1 pt-36 px-16">
+      <Toolbar />
     </div>
   );
 }
