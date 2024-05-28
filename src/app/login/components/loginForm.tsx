@@ -8,7 +8,7 @@ import {
   FormLabel,
   FormMessage
 } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
+import { TextField } from '@/components/ui/textfield';
 import { useLogin } from '@/hooks/useLogin';
 import Image from 'next/image';
 
@@ -30,7 +30,7 @@ export function LoginForm() {
                 <FormItem className="space-y-0">
                   <FormLabel>Usuário:</FormLabel>
                   <FormControl>
-                    <Input placeholder="Digite seu usuário." {...field} />
+                    <TextField.Input placeholder="Digite seu usuário." {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -43,7 +43,7 @@ export function LoginForm() {
                 <FormItem className="space-y-0">
                   <FormLabel>Senha:</FormLabel>
                   <FormControl>
-                    <Input placeholder="Digite sua senha." {...field} />
+                    <TextField.Password placeholder="Digite sua senha." {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
