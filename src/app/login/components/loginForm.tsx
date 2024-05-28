@@ -50,7 +50,11 @@ export function LoginForm() {
               )}
             />
             <div className="flex justify-center mt-6">
-              <Button className="bg-[#E59688] hover:bg-[#E59688]/80 w-full" type="submit">
+              <Button
+                className="bg-[#E59688] hover:bg-[#E59688]/80 w-full"
+                type="submit"
+                loading={form.formState.isSubmitting}
+              >
                 Login
               </Button>
             </div>
