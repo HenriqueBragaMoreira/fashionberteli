@@ -1,6 +1,8 @@
 import { Toaster } from '@/components/ui/toaster';
+import { queryClient } from '@/lib/react-query';
 import { cn } from '@/lib/utils';
 import '@/styles/globals.css';
+import { QueryClientProvider } from '@tanstack/react-query';
 import type { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
 
@@ -29,8 +31,10 @@ export default function RootLayout({
         <link rel="icon" type="image/x-icon" href="./icon.ico" />
       </head>
       <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
-        {children}
-        <Toaster />
+        <QueryClientProvider client={queryClient}>
+          {children}
+          <Toaster />
+        </QueryClientProvider>
       </body>
     </html>
   );
