@@ -28,7 +28,7 @@ export const routes = [
 
 export function Sidebar() {
   return (
-    <aside className="bg-[#FFB6A1] flex flex-col h-screen px-10 py-5 gap-5 items-center">
+    <aside className="bg-[#FFB6A1] flex flex-col px-10 py-5 gap-5 items-center">
       <div className="flex justify-between gap-6 w-full">
         <CircleUserRound size={28} className="cursor-pointer" />
         <LogOut size={26} className="cursor-pointer" />

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Toolbar } from './components/toolbar';
+import { DataTable } from './components/dataTable';
 
 export const metadata: Metadata = {
   title: 'Estoque'
@@ -7,8 +7,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex-1 pt-36 px-16">
-      <Toolbar />
+    <div className="flex-1 pt-32 pb-10 px-16">
+      <DataTable />
     </div>
   );
 }
