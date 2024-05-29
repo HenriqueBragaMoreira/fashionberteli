@@ -44,3 +44,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+::-webkit-scrollbar {
+  @apply h-1.5 w-1.5;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-lg bg-foreground/40 transition-colors;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  @apply bg-foreground/60;
+}
