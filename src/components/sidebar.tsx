@@ -3,9 +3,9 @@ import { authToken } from '@/constants/auth';
 import { CircleUserRound, LogOut } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { destroyCookie } from 'nookies';
 import { toast } from './ui/use-toast';
-import { useRouter } from 'next/navigation';
 
 export const routes = [
   {
@@ -44,7 +44,7 @@ export function Sidebar() {
   }
 
   return (
-    <aside className="bg-[#FFB6A1] flex flex-col px-10 py-5 gap-5 items-center">
+    <aside className="bg-[#FFB6A1] flex flex-col px-10 py-5 gap-5 items-center min-h-screen">
       <div className="flex justify-between gap-6 w-full">
         <CircleUserRound size={28} className="cursor-pointer" />
         <LogOut
