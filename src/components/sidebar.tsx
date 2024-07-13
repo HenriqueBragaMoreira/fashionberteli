@@ -15,16 +15,11 @@ export const routes = [
   },
   {
     id: 2,
-    name: 'Cadastrar produtos',
-    path: '/'
-  },
-  {
-    id: 3,
     name: 'Histórico de movimentações',
     path: '/'
   },
   {
-    id: 4,
+    id: 3,
     name: 'Formas de pagamento',
     path: '/'
   }
@@ -67,8 +62,7 @@ export function Sidebar() {
           <Link
             className="bg-[#FFE6D1] hover:bg-[#FFE6D1]/70 rounded-2xl py-3 px-2"
             key={item.id}
-            href={item.path}
-          >
+            href={item.path}>
             {item.name}
           </Link>
         ))}

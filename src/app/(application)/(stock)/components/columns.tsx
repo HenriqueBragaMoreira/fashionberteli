@@ -1,5 +1,5 @@
 import { ProductResponse } from '@/services/product/types';
-import { ColumnDef } from '@tanstack/react-table';
+import { CellContext, ColumnDef } from '@tanstack/react-table';
 import { Actions } from './actions';
 
 export const columns: ColumnDef<ProductResponse>[] = [
@@ -35,8 +35,10 @@ export const columns: ColumnDef<ProductResponse>[] = [
   {
     id: 'actions',
     enableHiding: false,
-    cell: () => {
-      return <Actions />;
+    cell: ({ row }: CellContext<ProductResponse, unknown>) => {
+      const inf = row.original;
+
+      return <Actions row={inf} />;
     }
   }
 ];

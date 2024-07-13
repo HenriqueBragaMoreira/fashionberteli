@@ -5,9 +5,15 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
+import { ProductResponse } from '@/services/product/types';
 import { MoreHorizontal } from 'lucide-react';
+import { AllInformations, ProductInput, ProductOutput, UpdateProduct } from './tableActions';
 
-export function Actions() {
+type ActionsProps = {
+  row: ProductResponse;
+};
+
+export function Actions({ row }: ActionsProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger title="Mais ações">
@@ -16,6 +22,10 @@ export function Actions() {
       <DropdownMenuContent>
         <DropdownMenuLabel>Mais Ações</DropdownMenuLabel>
         <DropdownMenuSeparator />
+        <ProductInput />
+        <AllInformations />
+        <UpdateProduct />
+        <ProductOutput />
       </DropdownMenuContent>
     </DropdownMenu>
   );
