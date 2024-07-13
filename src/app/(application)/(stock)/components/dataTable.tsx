@@ -1,17 +1,23 @@
 'use client';
-import { flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
-import { Toolbar } from './toolbar';
+import { Button } from '@/components/ui/button';
 import {
   Table,
-  TableHeader,
-  TableRow,
-  TableHead,
   TableBody,
-  TableCell
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
 } from '@/components/ui/table';
-import { columns } from './columns';
+import { stockService } from '@/services/product';
 import { useQuery } from '@tanstack/react-query';
-import { stockService } from '@/services/stock';
+import {
+  flexRender,
+  getCoreRowModel,
+  getPaginationRowModel,
+  useReactTable
+} from '@tanstack/react-table';
+import { columns } from './columns';
+import { Toolbar } from './toolbar';
 
 export function DataTable() {
   const { data } = useQuery({
@@ -24,7 +30,8 @@ export function DataTable() {
   const table = useReactTable({
     data: data || [],
     columns,
-    getCoreRowModel: getCoreRowModel()
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel()
   });
   return (
     <div className="flex flex-col gap-6">
@@ -65,6 +72,24 @@ export function DataTable() {
           )}
         </TableBody>
       </Table>
+      <div className="flex items-center justify-end space-x-2 py-4">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          Voltar
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          Avançar
+        </Button>
+      </div>
     </div>
   );
 }

@@ -2,12 +2,12 @@ import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger
 } from '@/components/ui/dialog';
 import { PlusCircle } from 'lucide-react';
+import { FormCreateProduct } from './form/formCreateProduct';
 
 export function Toolbar() {
   return (
@@ -17,18 +17,15 @@ export function Toolbar() {
         <Dialog>
           <DialogTrigger asChild>
             <Button className="gap-2 bg-[#FFB6A1] hover:bg-[#FFB6A1]/80">
-              Adicionar produto
+              Criar produto
               <PlusCircle />
             </Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Are you absolutely sure?</DialogTitle>
-              <DialogDescription>
-                This action cannot be undone. This will permanently delete your account and remove
-                your data from our servers.
-              </DialogDescription>
+              <DialogTitle>Criar novo produto</DialogTitle>
             </DialogHeader>
+            <FormCreateProduct />
           </DialogContent>
         </Dialog>
       </div>
