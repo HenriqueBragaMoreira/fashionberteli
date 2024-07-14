@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow
 } from '@/components/ui/table';
-import { stockService } from '@/services/product';
+import { productService } from '@/services/product';
 import { useQuery } from '@tanstack/react-query';
 import {
   flexRender,
@@ -21,9 +21,9 @@ import { Toolbar } from './toolbar';
 
 export function DataTable() {
   const { data } = useQuery({
-    queryKey: ['getStock'],
+    queryKey: ['products'],
     queryFn: async () => {
-      return stockService.get();
+      return productService.get();
     }
   });
 

@@ -28,7 +28,7 @@ export function Toolbar() {
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
-                <DialogTitle>Criar novo produto</DialogTitle>
+                <DialogTitle className="text-2xl font-bold">Criação de novos produtos</DialogTitle>
               </DialogHeader>
               <FormCreateProduct />
             </DialogContent>
