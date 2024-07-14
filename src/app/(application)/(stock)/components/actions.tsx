@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { ProductResponse } from '@/services/product/types';
 import { MoreHorizontal } from 'lucide-react';
-import { AllInformations, ProductInput, ProductOutput, UpdateProduct } from './tableActions';
+import { AllInformations, UpdateProduct } from './tableActions';
 
 type ActionsProps = {
   row: ProductResponse;
@@ -22,10 +22,8 @@ export function Actions({ row }: ActionsProps) {
       <DropdownMenuContent>
         <DropdownMenuLabel>Mais Ações</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <ProductInput />
         <AllInformations />
         <UpdateProduct />
-        <ProductOutput />
       </DropdownMenuContent>
     </DropdownMenu>
   );
