@@ -22,7 +22,7 @@ export function Actions({ row }: ActionsProps) {
       <DropdownMenuContent>
         <DropdownMenuLabel>Mais Ações</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <AllInformations />
+        <AllInformations row={row} />
         <UpdateProduct />
       </DropdownMenuContent>
     </DropdownMenu>

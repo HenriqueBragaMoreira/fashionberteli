@@ -8,6 +8,12 @@ export type ProductResponse = {
   costPrice: number;
   sellingPrice: number;
   createdAt: string;
+  stocks: Stock[];
+};
+
+type Stock = {
+  quantity: number;
+  size: string;
 };
 
 export type PostProps = {
