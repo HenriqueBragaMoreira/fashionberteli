@@ -28,14 +28,42 @@ import { z } from 'zod';
 
 type handleInputProductProps = {
   productId: string;
-  quantity: number;
-  price: number;
+  quantity: string;
+  price: string;
 };
 
 const FormProductInputSchema = z.object({
   productId: z.string().min(1, 'Selecione um produto!'),
-  quantity: z.number().min(1, 'Digite uma quantidade válida!'),
-  price: z.number().min(1, 'Digite um valor!')
+  quantity: z
+    .string()
+    .min(1, 'Digite uma quantidade válida!')
+    .refine(
+      (val) => {
+        const regex = /^-?\d+([.,]\d+)?$/;
+        return regex.test(val);
+      },
+      {
+        message: 'Digite somente números!'
+      }
+    )
+    .transform((val) => {
+      return val.replace(',', '.');
+    }),
+  price: z
+    .string()
+    .min(1, 'Digite um valor!')
+    .refine(
+      (val) => {
+        const regex = /^-?\d+([.,]\d+)?$/;
+        return regex.test(val);
+      },
+      {
+        message: 'Digite somente números!'
+      }
+    )
+    .transform((val) => {
+      return val.replace(',', '.');
+    })
 });
 
 const formSchema = z.object({
@@ -48,7 +76,7 @@ export function FormProductInput() {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      inputs: [{ productId: '', quantity: 1, price: 1 }]
+      inputs: [{ productId: '', quantity: '1', price: '1' }]
     }
   });
 
@@ -59,8 +87,9 @@ export function FormProductInput() {
 
   async function handleInputProduct(data: handleInputProductProps[]) {
     const updatedPayload = data.map((item) => ({
-      ...item,
-      productId: Number(item.productId)
+      productId: Number(item.productId),
+      quantity: Number(item.quantity),
+      price: Number(item.price)
     }));
     try {
       await inputsService.post(updatedPayload);
@@ -68,6 +97,9 @@ export function FormProductInput() {
         variant: 'success',
         title: 'Sucesso',
         description: 'Entrada realizada com sucesso!'
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['products']
       });
       handleCloseDialog();
     } catch {
@@ -159,7 +191,7 @@ export function FormProductInput() {
         <div className="flex gap-4">
           <Button
             className="w-full bg-[#e69e8b] hover:bg-[#e69e8b]/80"
-            onClick={() => append({ productId: '', quantity: 1, price: 1 })}
+            onClick={() => append({ productId: '', quantity: '1', price: '1' })}
           >
             Adicionar Entrada
           </Button>

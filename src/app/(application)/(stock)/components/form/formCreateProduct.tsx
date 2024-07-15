@@ -41,7 +41,7 @@ const FormCreateProductSchema = z.object({
         return regex.test(val);
       },
       {
-        message: 'The string must contain a valid number'
+        message: 'Digite somente números!'
       }
     )
     .transform((val) => {
@@ -56,7 +56,7 @@ const FormCreateProductSchema = z.object({
         return regex.test(val);
       },
       {
-        message: 'The string must contain a valid number'
+        message: 'Digite somente números!'
       }
     )
     .transform((val) => {
