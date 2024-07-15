@@ -226,7 +226,11 @@ export function FormCreateProduct() {
             )}
           />
         </div>
-        <Button className="bg-white text-black font-bold hover:bg-white/70" type="submit">
+        <Button
+          loading={form.formState.isSubmitting}
+          className="bg-white text-black font-bold hover:bg-white/70"
+          type="submit"
+        >
           Criar Produto
         </Button>
       </form>
