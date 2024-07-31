@@ -11,6 +11,13 @@ export const columns: ColumnDef<ProductResponse>[] = [
     }
   },
   {
+    accessorKey: 'quantity',
+    header: 'Quantidade',
+    cell: ({ row }) => {
+      return row.original.stocks.map((item) => item.quantity);
+    }
+  },
+  {
     accessorKey: 'color',
     header: 'Cor do produto'
   },
