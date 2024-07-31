@@ -45,10 +45,7 @@ const FormProductInputSchema = z.object({
       {
         message: 'Digite somente números!'
       }
-    )
-    .transform((val) => {
-      return val.replace(',', '.');
-    }),
+    ),
   price: z
     .string()
     .min(1, 'Digite um valor!')
@@ -191,6 +188,7 @@ export function FormProductInput() {
         <div className="flex gap-4">
           <Button
             className="w-full bg-[#e69e8b] hover:bg-[#e69e8b]/80"
+            type="button"
             onClick={() => append({ productId: '', quantity: '1', price: '1' })}
           >
             Adicionar Entrada
